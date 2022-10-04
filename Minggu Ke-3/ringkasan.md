@@ -208,3 +208,61 @@ lalu bagaimana ketika ingin mengakses nama penulis? caranya mudah.
 ```
 console.log(berita.penulis.people.nama) // 'baim'
 ```
+
+### Looping Object
+
+Ketika kita ingin menampilkan seluruh data, kita bisa menggunakan looping, jadi kita tidak perlu memanggilnya secara manual satu persatu.
+
+caranya bisa dilihat pada kode dibawah:
+
+```
+let berita = {
+    judul: 'Peserta dianggap sudah tidak kuat',
+    deskripsi: 'Dianggap sudah tidak kuat, peserta ini malah turu',
+    penulis: {
+        people:{
+            nama: 'Baim',
+            usia: 22,
+            kota: 'Bandung'
+        }
+    }
+}
+
+for(let key in berita){
+    console.log(berita[key])
+}
+
+for(let author in berita.penulis.people){
+    console.log(berita.penulis.people[author])
+}
+```
+
+### Array Object
+
+object bisa menyimpan lebih dari satu data, dan kita bisa menyimpan kumpulan object di dalam array.
+
+```
+let siswa = [
+    {
+        name: 'Baim',
+        age: 25,
+        jurusan: 'Informatika'
+    },
+    
+    {
+        name: 'Andin',
+        age: 21,
+        jurusan: 'Logistik'
+    }
+
+    {
+        name: 'Brian',
+        age: 23,
+        jurusan: 'Informatika'
+    }
+]
+
+siswa.foreach((listStudent) =>{
+    console.log(listStudent)
+})
+```
