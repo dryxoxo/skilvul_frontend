@@ -209,7 +209,3 @@ switch(expression) {
 }
 ```
 
-literasi teknologi
-kepemimpinan
-komputer masyarakat
-
