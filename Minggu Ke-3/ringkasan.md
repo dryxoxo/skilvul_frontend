@@ -118,3 +118,93 @@ let kaliDua = angka.map((element) => {
 console.log(kaliDua)
 //output 2, 4, 6, 8, 10
 ```
+
+## Javascript Object
+
+**Definisi Object**
+
+Object adalah sebuah tipe data pada variabel yang menyimpan properti dan fungsi (method). Sebagai contoh: dalam kehidupan nyata, mobil adalah objek. mobil memiliki properti seperti warna dan nama, serta metode seperti mengemudi. Semua mobil memiliki sifat yang sama, namun nilainya berbeda untuk setiap mobil. Selain itu, semua mobil memiliki metode yang sama, tetapi dapat dijalankan pada waktu yang berbeda.
+
+Objek dalam Javascript
+
+```
+var siswa = {
+  nama: "Baim", 
+  umur: 22,
+  "Jenis Kelamin": "Laki - Laki"
+};
+```
+
+lalu bagaimana cara memanggil variabel dengan menggunakan properti?
+
+kita bisa menggunakan dot notation
+
+```
+console.log(siswa.nama) /// 'Baim'
+```
+
+atau bisa juga menggunakan bracket notation
+
+```
+console.log(siswa["Jenis Kelamin"]) /// 'Laki - Laki'
+```
+
+**Update Objek**
+
+Kita juga bisa mengupdate value dari sebuah objek dengan cara dibawah
+```
+siswa.umur = 23
+```
+perlu diingat, bahwa ketika ingin melakukan manipulasi, buatlah variable objek dengan menggunakan let, bukan const
+
+**Hapus Objek Properti**
+kita bisa melakukan penghapusan dengan menggunakan delete
+
+```
+delete siswa["Jenis Kelamin"]
+
+//output
+{
+  nama: "Baim", 
+  umur: 22,
+};
+```
+
+**Method Pada Objek**
+Kita bisa membuat method custom untuk kita gunakan pada aplikasi kita.
+
+```
+let salam = {
+    datang: function(){
+        return 'halo selamat datang'
+    },
+    afterPay: function(){
+        return 'terimakasih sudah membeli'
+    }
+}
+
+console.log(salam.datang()) // 'halo selamat datang'
+```
+
+**Nested Objek**
+Dalam dunia nyata, nantinya kita akan menemukan objek bersarang seperti dibawah:
+
+```
+let berita = {
+    judul: 'Peserta dianggap sudah tidak kuat',
+    deskripsi: 'Dianggap sudah tidak kuat, peserta ini malah turu',
+    penulis: {
+        people:{
+            nama: 'Baim',
+            usia: 22,
+            kota: 'Bandung'
+        }
+    }
+}
+```
+
+lalu bagaimana ketika ingin mengakses nama penulis? caranya mudah.
+
+```
+console.log(berita.penulis.people.nama) // 'baim'
+```
