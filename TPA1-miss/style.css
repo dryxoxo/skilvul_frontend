@@ -1,0 +1,81 @@
+/* Reset CSS */
+*{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size  : 24px;
+    line-height: 1.5;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+ul {
+    margin: 25px;
+}
+
+ul li{
+    display: inline;
+    margin: 10px;
+    font-weight: bold;
+}
+
+a{
+    color: #131313;
+    text-decoration:none;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.btn--bg {
+    margin: 20px;
+    padding: 16px 30px;
+    font-size: 16;
+}
+.btn {
+    background: #fff;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
+    transition: transform .3s;
+}
+
+a:hover{
+    background-color: pink;
+}
+
+h1 {
+    color: white;
+    font-size: 3rem;
+}
+
+
+#konten {
+    background: linear-gradient(to right, rgba(0,98,185,0.8), rgba(0,98,185,0.8)),url(assets/common-bg.svg) ;
+    /* background-image: url("assets/common-bg.svg"); */
+    display: flex;
+    position: relative;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+.text-center{
+    text-align: center;
+}
+
+.container-fluid{
+    height:100vh;
+}
+
+.sec-pad {
+    padding: 12rem 0;
+}
