@@ -266,3 +266,165 @@ siswa.foreach((listStudent) =>{
     console.log(listStudent)
 })
 ```
+
+## Rekursif
+
+Rekursif adalah sebuah function yang memanggil dirinya sendiri sampai kondisi tertentu. fungsi rekursif biasanya sering digunakan untuk case matematika dan yang berhubungan dengan perhitungan. contohnya adalah seperti dibawah
+
+```
+function rekursif(){
+    if(condition){
+        //akan berhenti apabila kondisi terpenuhi
+    } else {
+        rekursif()
+    }
+    rekursif()
+}
+```
+
+Fungsi rekursif selalu memiliki kondisi yang menyatakan kapan fungsi tersebut berhenti dan memanggil dirinya sendiri sambil mengurangi atau memecahkan data masukan setiap panggilannya.
+
+## Asyncronus
+
+JavaScript termasuk ke dalam single-thread language atau synchronous yang artinya hanya dapat mengeksekusi satu perintah pada satu waktu dan harus menunggu satu perintah tersebut selesai sebelum melanjutkan perintah selanjutnya.
+
+Pada dasarnya, javascript merupakan bahasa yang mengeksekusi secara berurutan dari atas ke bawah layaknya sebuah antrian atau biasa disebut synchronous.
+
+Namun hal ini bisa menjadi masalah jika terdapat code yang eksekusinya membutuhkan waktu yang lama, seperti code untuk mendownload data dari server.
+
+Pada konsep asynchronous, code akan dieksekusi tanpa menunggu eksekusi code lain selesai sehingga seakan-akan dieksekusi secara bersamaan.
+
+Lalu, bagaimana cara membuat asinkronus? bisa menggunakan ``` setTimeout(function, milliseconds)``` atau ```setInterval(function, milliseconds) ```
+Ada 3 teknik yang digunakan untuk menghandle proses asynchronous pada JavaScript:
+
+1. Callback
+2. Promise
+3. Async Await
+
+**Callback**
+
+Callback adalah function yang menjadi argument untuk function lain dan akan dieksekusi pada poin tertentu, bisa jadi saat ini atau nanti.
+
+```
+const notify = () => {
+  console.log('Download complete!');
+};
+const download = (url, callback) => {
+  console.log(`Downloading from ${url}....`);
+  callback();
+};
+const url = 'https://brachio.site/download';
+download(url, notify);
+``` 
+
+**Promise**
+
+Promise bisa dikatakan sebagai object yang menyimpan hasil dari sebuah operasi asynchronous baik itu hasil yang diinginkan (resolved value) atau alasan kenapa operasi itu gagal (failure reason).
+
+- pending, operasi sedang berlangsung
+- fulfilled, operasi selesai dan berhasil
+- rejected, operasi selesai namun gagal
+
+contoh kode promise:
+
+``` 
+let progress = 100;
+const download = new Promise((resolve, reject) => {
+  if (progress === 100) {
+    resolve('Download complete');
+  } else {
+    reject('Download failed');
+  }
+});
+``` 
+
+lalu untuk menangkap atau melakukan handler
+
+``` 
+download
+  .then((result) => {
+    console.log(result); // Download complete
+  })
+  .catch((error) => {
+    console.log(error); // Download failed atau tidak ditampilkan jika tidak ada error
+  });
+``` 
+
+**async Await**
+Async/Await diperkenalkan di ES8 / ES2017 untuk menghandle operasi asynchronous dengan syntax yang lebih mirip dengan synchronous.
+``` 
+const getStatus = (url) => {
+  console.log(`Downloading from ${url}...`);
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Download Complete');
+    }, 3000);
+  });
+};
+
+async function download(url) {
+  let status = await getStatus(url); // tunggu sampai promise selesai
+  console.log(status);
+}
+
+const url = 'https://brachio.site/download';
+
+download(url);
+``` 
+
+## Web Storage
+
+**cookies**
+
+Cookies adalah data kecil yang dikirim dari situs web dan disimpan di komputer kita oleh web browser saat kita menjelajah. Disebut data kecil karena maksimum data yang dapat disimpan dalam cookies adalah 4096 bytes (4 KB).
+
+**local storage**
+
+LocalStorage adalah tempat penyimpanan data di browser. Penyimpanan ini memungkinkan aplikasi web atau aplikasi javascript menyimpan data secara lokal tanpa terhubung ke internet. Localstorage dapat menyimpan data secara permanent, jadi sangat berbeda dengan session yang datanya akan hilang saat jendela browser ditutup.
+
+untuk menyimpan kedalam local storage:
+
+
+```
+localStorage.setItem('key', value);
+```
+
+contoh penggunaan:
+index.html
+
+```
+
+<input type="number" class="form-control" id="tinggiBadan">
+```
+
+script.js
+
+```
+let dataTinggi = []
+function hitungBMI(event){
+    event.preventDefault();
+    let tinggiBadan = document.getElementById('tinggiBadan').value;
+    
+    dataTinggi.push(tinggiBadan)
+    let dataTinggiString = JSON.stringify(dataTinggi)
+    localStorage.setItem('tinggiKey', dataTinggiString)
+```
+maka hasilnya akan terdapat key ```tinggiKey``` dengan value tinggiBadan.
+
+**Session Storage**
+SessionStorage menyimpan data secara sementara, data akan menghilang saat tab ditutup atau browser ditutup. Metode dalam sessionStorage sama halnya dengan localStorage,
+
+```
+let dataObject = {
+    nickname : 'Budi',
+    game : 'PUBG',
+    weapon : "UZi"
+  }
+  let str = JSON.stringify(data)
+  window.sessionStorage.setItem("data_object", str)
+  
+  let dataArray = ["sapi", "kambing", "kelinci"];
+  let str2 = JSON.stringify(data)
+  window.sessionStorage.setItem("data_object", str2)
+```

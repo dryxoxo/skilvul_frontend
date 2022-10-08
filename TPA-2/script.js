@@ -1,3 +1,5 @@
+let dataTinggi = []
+
 function hitungBMI(event){
     event.preventDefault();
 
@@ -8,7 +10,11 @@ function hitungBMI(event){
     if(!tinggiBadan || !beratBadan){
         alert('Tinggi / Berat badan tidak boleh kosong')
     }
-
+    
+    dataTinggi.push(tinggiBadan)
+    let dataTinggiString = JSON.stringify(dataTinggi)
+    localStorage.setItem('tinggiKey', dataTinggiString)
+    
     let result = beratBadan / Math.pow(tinggiBadan/100, 2)
     let hasil = ''
 
