@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col my-auto p-5">
+                    <h1>Hitung BMI di sini!</h1>
+                    <p>Masukan tinggi dan berat badan kamu untuk mengecek hasil BMI</p>
+                    <form>
+                        <div class="mb-4 mt-5 text-start">
+                            <label for="tinggiBadan" class="form-label">Tinggi Badan</label>
+                            <input type="number" class="form-control" id="tinggiBadan">
+                        </div>
+                        <div class="mb-4 text-start">
+                            <label for="beratBadan" class="form-label">Berat Badan</label>
+                            <input type="number" class="form-control" id="beratBadan">
+                        </div>
+                        <button class="btn btn-primary" id="submit">Hitung BMI</button>
+                        <p id="result" class="mt-5"></p>
+                    </form>
+                </div>
+                <div class="col">
+                    <img src="assets/cuate.svg" alt="doctor" style="height: 450px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
