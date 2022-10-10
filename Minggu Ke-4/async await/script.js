@@ -40,7 +40,12 @@ getDataDigimon = async () => {
     try {
         let result = await fetch('https://digimon-api.vercel.app/api/digimon')
         result = await result.json()
+        console.log(typeof result);
         console.log(result);
+        result.forEach(element => {
+            console.log(element.name);
+        })
+
     } catch (error) {
         console.log(error);
     }
