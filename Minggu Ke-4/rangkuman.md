@@ -87,3 +87,24 @@ fetch('https://digimon-api.vercel.app/api/digimon')
 ```
 
 kode diatas akan meminta kode ke api ```https://digimon-api.vercel.app/api/digimon``` lalu untuk melihat result digunakan ```.then``` karena fetch akan mengembalikan menjadi promise. lalu data result akan diubah menjadi json. json akan mengembalikan menjadi promise lagi, maka untuk mengakses datanya gunakan ```.then```.
+
+## Git & Github Advance
+**Senin, 10 Oktober 2022**
+
+Ketika kita ingin melakukan kolaborasi dengan rekan, kita bisa menggunakan github agar source code kita bisa terintegrasi satu sama lain.
+
+Sebelum melakukan kolaborasi, ada beberapa hal yang harus diketahui agar nantinya tidak terjadi konflik ketika bekerja bersama, walau sepertinya aga mustahil kalau tidak terjadi konflik.
+
+Untuk meminamilisir, kita bisa melakukan pemisahan repository. jadi nanti akan terdapat repository main dan juga dev. repositori dev disini berfungsi untuk menampung cabang branch yang dikerjakan oleh rekan rekan. jadi kasarannya, setiap orang akan memiliki branch sendiri sendiri di dalam branch dev, juga sudah selesai mengerjakan, kita bisa melakukan merge ke dev. lalu akan direview pada tahap dev, setelah itu akan dilakukan pull request ke branch main.
+
+Berikut sintaks git yang harus dipahami:
+
+
+|Sintaks  |Fungsi  |
+|---------|---------|
+|```git clone```     | Mendownload repositori ke dalam komputer         |
+|```git switch dev```     |Berfungsi untuk berpindah repositori         |
+|```git pull```     |Berfungsi untuk melakukan update terbaru         |
+|``` git branch [nama-branch]```     |Berfungsi untuk membuat branch         |
+|```git merge dev```     |untuk melakukan merge ke dalam branch dev         |
+
