@@ -1,7 +1,7 @@
 export function emptyCard(title, image, release, rate){
     let listFilm = document.getElementById('listMovie')
     let newDate = new Date(release)
-    newDate = newDate.toLocaleDateString('en-US', {
+    newDate = newDate.toLocaleDateString('ind-ID', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
