@@ -1,5 +1,11 @@
 export function emptyCard(title, image, release, rate){
     let listFilm = document.getElementById('listMovie')
+    let newDate = new Date(release)
+    newDate = newDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    } )
     return `
     <div class="col-md-4 d-flex align-items-stretch mb-3">
         <div class="card mx-auto" style="width: 18rem;">
@@ -9,7 +15,7 @@ export function emptyCard(title, image, release, rate){
                 <p>Rating: ${rate} </p>
              </div>
              <div class="card-footer text-muted">
-                ${release}
+                ${newDate}
             </div>
         </div>
     </div>
