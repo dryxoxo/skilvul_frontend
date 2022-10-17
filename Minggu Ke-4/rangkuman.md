@@ -89,7 +89,7 @@ fetch('https://digimon-api.vercel.app/api/digimon')
 kode diatas akan meminta kode ke api ```https://digimon-api.vercel.app/api/digimon``` lalu untuk melihat result digunakan ```.then``` karena fetch akan mengembalikan menjadi promise. lalu data result akan diubah menjadi json. json akan mengembalikan menjadi promise lagi, maka untuk mengakses datanya gunakan ```.then```.
 
 ## Git & Github Advance
-**Senin, 10 Oktober 2022**
+**Selasa, 11 Oktober 2022**
 
 Ketika kita ingin melakukan kolaborasi dengan rekan, kita bisa menggunakan github agar source code kita bisa terintegrasi satu sama lain.
 
@@ -108,3 +108,42 @@ Berikut sintaks git yang harus dipahami:
 |``` git branch [nama-branch]```     |Berfungsi untuk membuat branch         |
 |```git merge dev```     |untuk melakukan merge ke dalam branch dev         |
 
+## Responsive Web Design Bootstrap 5
+**Rabu, 12 Oktober 2022**
+
+Responsif web bertujuan untuk membuat desain website dapat diakses dalam device apapun.
+
+Agar website bisa responsif maka ditambahkan tag seperti dibawah
+
+```
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+```
+
+**Menggunakan Max-Width**
+max-width berfungsi untuk mengatur lebar maksimal suatu element.
+
+**Menggunakan Media Query**
+
+```
+@media screen and (max-width: 600px) {
+  article{
+  	background :red !important;
+  	
+  }
+}
+```
+
+
+## Bootstrap
+
+Di dalam bootstrap terdapat sebuah sistem layouting yang sudah disediakan oleh bootstrap dan kita hanya memanggil kelasnya saja.
+
+1. Contianers.
+adalah suatu hal yang mendasar yang berisi, melapisi, dan menyelaraskan konten dalam perangkat atau area pandang tertentu. dan diperlukan saat menggunakan sistem grid default.
+
+1. Grid.
+Sistem grid Bootstrap menggunakan serangkaian wadah, baris, dan kolom untuk tata letak dan menyelaraskan konten. Itu dibangun dengan flexbox dan sepenuhnya responsif.
+
+1. col.
+Kolom dibangun di atas arsitektur flexbox grid. Flexbox berarti kami memiliki opsi untuk mengubah kolom individual dan memodifikasi grup kolom pada tingkat baris . Anda memilih bagaimana kolom tumbuh, menyusut, atau berubah.
