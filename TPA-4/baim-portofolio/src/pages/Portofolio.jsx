@@ -1,8 +1,11 @@
+import Nav from "../components/Nav";
 export default function Portofolio() {
-    return (
-      <>
-      <h1>Portofolio Page</h1>
-      </>
-    );
-  }
-  
+  return (
+    <>
+      <div className="container">
+        <Nav />
+        <h1>Ini Portofolio</h1>
+      </div>
+    </>
+  );
+}
