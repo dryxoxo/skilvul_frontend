@@ -156,3 +156,145 @@ export default function About() {
     );
   }
 ```
+
+## React Redux
+
+Redux merupakan sebuah state manajemen yang mana berfungsi untuk mengelola dan memusatkan suatu state. nantinya akan lebih sering menggunakan redux apabila terdapat data yang berubah dari waktu ke waktu. 
+
+lalu bagaimana cara menginstal redux pada react?
+
+```npm redux```
+
+```npm react-redux```
+
+setelah dilakukan instalasi, baru kita melakukan konfigurasi dari redux.
+
+### set-up awal redux
+<hr/>
+
+**Create Reducer**
+
+Buat folder redux lalu buat folder reducer di dalamnya.
+
+buatlah file ```keranjangReducer.js``` dalam reducer. lalu ikutilah baris kode dibawah.
+```Javascript
+const initailState = {
+  totalKeranjang: 0,
+};
+
+export default function keranjangReducer(state = initailState, action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+```
+Baris kode diatas memuat sebuah object yang nantinya akan dijadikan sebagai store dan memuat sebuah function yang memiliki 2 parameter serta menerima argumen berupa state, dan juga action yang nantinya akan dijalankan. didalam function tersebut terdapat sebuah switch case yang nantinya akan menampung sebuah logika yang akan dijalankan jika sesuai dengan kondisi dari ```action.type```
+<hr/>
+
+**Create File Store**
+
+lalu buatlah file ```index.js``` didalam folder ```redux/store``` kemudian ikuti baris dibawah.
+
+```Javascript
+import {createStore} from 'redux'
+
+import keranjangReducer from '../reducer/keranjangReducer'
+
+const store = createStore(keranjangReducer)
+
+export default store
+```
+baris kode diatas akan membuat store dari keranjangReducer yang mana store ini akan digunakan sebagai argumen dari ```provider```
+<hr/>
+
+**Create Folder Action**
+
+buatlah file ```action.js``` dalam folder redux
+reducer. lalu ikuti baris kode dibawah
+
+```Javascript
+export const INCREMENT_KERANJANG = "INCREMENT_KERANJANG"
+export const DECREMENT_KERANJANG = "DECREMENT_KERANJANG"
+
+export function incrementKeranjang(){
+    return{
+        type: INCREMENT_KERANJANG
+    }
+}
+
+export function decrementKeranjang(){
+    return{
+        type: DECREMENT_KERANJANG
+    }
+}
+```
+
+baris kode diatas akan membuat sebuah action yang mana nantinya akan digunakan sebagai argumen dari ```keranjangReducer.js``` dan struktur file tersebut akan berubah menjadi seperti dibawah
+```Javascript
+import {
+  INCREMENT_KERANJANG,
+  DECREMENT_KERANJANG,
+} from "../action/keranjangAction";
+
+const initailState = {
+  totalKeranjang: 0,
+};
+
+export default function keranjangReducer(state = initailState, action) {
+  switch (action.type) {
+    case INCREMENT_KERANJANG:
+      return {
+        totalKeranjang: state.totalKeranjang + 1,
+      };
+
+    case DECREMENT_KERANJANG:
+      return {
+        totalKeranjang: state.totalKeranjang > 0 ?  state.totalKeranjang - 1 : 0 ,
+      };
+
+    default:
+      return state;
+  }
+}
+
+```
+
+function keranjangReducer akan menjalankan sebuah kondisi apabila ketika parameter action mendapatkan sebuah argumen ```decrementKeranjang()``` maka akan menjalankan case ```DECREMENT_KERANJANG```.
+
+lalu bagaimana cara menggunakan function keranjangReducer? caranya adalah dengan menggunakan dispatch. bagaimana cara menggunakan dispatch?
+
+```Javascript
+import { useDispatch } from "react-redux";
+import {
+  incrementKeranjang,
+  decrementKeranjang,
+} from "../redux/action/keranjangAction";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+
+  const increment = () => {
+    setCount(count + 1);
+    dispatch(incrementKeranjang());
+  };
+  const decrement = () => {
+    count > 0 && dispatch(decrementKeranjang())
+    setCount(count > 0 ? count - 1 : 0);
+  };
+
+  return (
+    <>
+      <div>
+        <button onClick={decrement}>-</button>
+        <span>{count}</span>
+        <button onClick={increment}>+</button>
+      </div>
+    </>
+  );
+}
+```
+
+baris kode diatas akan menjalankan function keranjangReducer dengan menggunakan dispatch dengan memberikan sebuah argumen.
+
