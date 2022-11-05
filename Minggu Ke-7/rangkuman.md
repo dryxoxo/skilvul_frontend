@@ -298,3 +298,19 @@ export default function Counter() {
 
 baris kode diatas akan menjalankan function keranjangReducer dengan menggunakan dispatch dengan memberikan sebuah argumen.
 
+### Multiple Reducer
+
+lalu bagaimana jika memiliki reducer lebih dari satu dan ingin digunakan pada satu project? maka hal itu bisa menggunakan ```combineReducers()```. contoh penggunaanya:
+
+```Javascript
+import { combineReducers, createStore } from 'redux'
+
+const rootReducer = combineReducers({
+  theDefaultReducer,
+  firstNamedReducer,
+  secondNamedReducer
+})
+
+const store = createStore(rootReducer)
+```
+
