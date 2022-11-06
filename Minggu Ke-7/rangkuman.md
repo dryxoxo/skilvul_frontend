@@ -314,3 +314,60 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer)
 ```
 
+## React Redux Middleware & Thunk
+
+Secara konsep, redux tidak mendukung asynchronus. tapi hal ini bisa diakali dengan menggunakan middleware & thunk. thunk memiliki arti yaitu potongan kode yang bekerja dengan delay. thunks merupakan suatu pola dari penulisan function dengan logika di dalamnya yang dapat berinteraksi dengan redux baik dispacth maupun getState method.
+
+untuk menggunakan thunk. maka kita perlu melakuakn instalasi ```redux-thunk``` dan juga ```middleware``` dan harus ditambahkan dalam store. sebagai contoh:
+
+pada file ```src/store/index.js``` ubah isi file menjadi seperti ini
+
+```Javascript
+import { combineReducers, createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import todoReducer from "../reducer/todoReducer";
+
+const allReducer = combineReducers({
+  todo: todoReducer,
+});
+
+const store = createStore(allReducer, applyMiddleware(thunk));
+
+export default store;
+```
+
+lalu untuk bagian ```action```
+
+```Javascript
+import axios from "axios";
+
+export const GET_TODO = "GET_TODO";
+export const FETCH_START = "FETCH_START";
+export const SUCCESS_GET_TODO = "SUCCESS_GET_TODO";
+
+function fetchStart() {
+  return {
+    type: FETCH_START,
+  };
+}
+
+function successGetTodo(data) {
+  return {
+    type: SUCCESS_GET_TODO,
+    payload: data,
+  };
+}
+
+export const getTodo = () => {
+  return async (dispatch) => {
+    dispatch(fetchStart());
+    const result = await axios(
+      "https://6350376e78563c1d82bca248.mockapi.io/todo"
+    );
+    console.log(result.data);
+    dispatch(successGetTodo(result.data));
+  };
+};
+```
+
+didalam baris kode tersebut terdapat sebuah thunk dengan function bernama getTodo yang mana memiliki return berupa sebuah function
