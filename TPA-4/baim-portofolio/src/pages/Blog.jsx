@@ -4,7 +4,7 @@ export default function Blog() {
     <>
       <div className="container">
         <Nav />
-        <h1>Ini Blog</h1>
+        <h1>Haduh Blog</h1>
       </div>
     </>
   );

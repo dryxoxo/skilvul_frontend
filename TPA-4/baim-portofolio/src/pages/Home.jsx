@@ -1,4 +1,4 @@
-import CardBlog from "../components/Cardblog";
+import CardBlog from "../components/CardBlog";
 import Nav from "../components/Nav";
 import Self from "../components/Self";
 
