@@ -32,9 +32,11 @@ const DetailBlog = () => {
           .filter((el) => el.id === +id)
           .map(({ id, title, descTitle, desc, createdAt }, key) => (
             <>
-              <h1 className="mt-4">{title}</h1>
-              <p className="text-muted mb-3">{createdAt}</p>
-              <p>{desc}</p>
+              <div key={key}>
+                <h1 className="mt-4">{title}</h1>
+                <p className="text-muted mb-3">{createdAt}</p>
+                <p>{desc}</p>
+              </div>
             </>
           ))}
       </div>
