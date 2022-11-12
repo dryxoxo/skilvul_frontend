@@ -46,7 +46,7 @@ export default function CardBlog() {
               <p className="text-muted ms-auto">{createdAt}</p>
             </div>
             <a onClick={()=>handleId(id)} className="btn-link">
-              See More
+              See More.
             </a>
           </div>
         ))}
