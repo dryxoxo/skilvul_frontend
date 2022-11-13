@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteTodo, updateTodo } from "../redux/actions/todoAction";
+import { deleteTodo, updateTodo, updateCheck } from "../redux/actions/todoAction";
 
 export default function CardTodo({id, title, completed}) {
   const [editVisible, setEditVisible] = useState(false);
@@ -32,6 +32,10 @@ export default function CardTodo({id, title, completed}) {
 
   const handlingDelete = (id) => {
     dispatch(deleteTodo(id));
+  };
+
+  const handlingCheck = (data) => {
+    dispatch(updateCheck(data));
   };
 
   return (
