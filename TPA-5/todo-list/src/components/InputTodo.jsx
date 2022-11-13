@@ -1,19 +1,37 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../redux/actions/todoAction";
 import Filter from "./Filter";
 import ListTodo from "./ListTodo";
 
 export default function InputTodo() {
   const [Addtodo, setAddTodo] = useState("");
 
+  const dispatch = useDispatch()
+  
   const handlingSubmit = (e) => {
     e.preventDefault();
+    let date = new Date()
+    let time = date.getTime()
+    let todoObj = {
+      id: time,
+      title: Addtodo,
+      completed: false
+    }
+
     console.log(Addtodo);
+    dispatch(addTodo(todoObj))
     setAddTodo("");
   };
 
   const handlingInput = (e) => {
     setAddTodo(e.target.value);
   };
+
+
+
+
+
   return (
     <>
       <div className="row vh-100">

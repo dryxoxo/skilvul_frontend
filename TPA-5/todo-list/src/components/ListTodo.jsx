@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo, updateCheck } from "../redux/actions/todoAction";
+import CardTodo from "./CardTodo";
 
 export default function ListTodo() {
+  const state = useSelector((state) => state);
+  const [editVisible, setEditVisible] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handlingDelete = (id) => {
+    dispatch(deleteTodo(id));
+  };
+
+  const handlingCheck = (data) => {
+    dispatch(updateCheck(data));
+  };
+
+  const handlingEdit = () => {
+    setEditVisible(!editVisible);
+    console.log(editVisible);
+  };
+
+  console.log(state);
+
   return (
     <>
       <div className="my-3">
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckChecked"
-          />
-          <label className="form-check-label" for="flexCheckChecked">
-            Todo 1
-          </label>
-        </div>
+        {state.map((el, key) => (
+          <div key={key} className="d-flex">
+            <CardTodo id={el.id} title={el.title} completed={el.completed} />
+          </div>
+        ))}
       </div>
     </>
   );
