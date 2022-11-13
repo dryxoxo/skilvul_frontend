@@ -1,5 +1,7 @@
-import CardBlog from "../components/Cardblog";
+import CardBlog from "../components/CardBlog";
+import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import PortofolioCard from "../components/PortofolioCard";
 import Self from "../components/Self";
 
 export default function Home() {
@@ -9,7 +11,9 @@ export default function Home() {
         <Nav />
         <Self/>
         <CardBlog/>
+        <PortofolioCard/>
       </div>
+      <Footer/>
     </>
   );
 }

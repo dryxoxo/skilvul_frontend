@@ -1,6 +1,10 @@
-import { useNavigate } from "react-router";
+import React from "react";
+import { useParams } from "react-router";
+import Nav from "../components/Nav";
 
-export default function CardBlog() {
+const DetailBlog = () => {
+  const { id } = useParams();
+
   let dataBlog = [
     {
       id: 1,
@@ -20,37 +24,24 @@ export default function CardBlog() {
     },
   ];
 
-  const navigation = useNavigate()
-
-  const handleId = (id) => {
-    navigation(`/blog/${id}`)
-  }
   return (
     <>
-      <div className="row mb-3 border-bottom">
-        <div className="col mb-2">
-          <p className="h4 text-primary text-opacity-75">
-            <span>
-              <i className="fa-regular fa-pen-to-square me-2"></i>
-            </span>
-            Blog
-          </p>
-        </div>
-      </div>
-      <div className="row mb-5">
-        {dataBlog.map(({ id, title, descTitle, createdAt }, key) => (
-          <div key={key} className="col-12 my-2 pb-2 border-bottom">
-            <h4>{title}</h4>
-            <div className="d-flex">
-              <p className="text-muted">{descTitle}</p>
-              <p className="text-muted ms-auto">{createdAt}</p>
-            </div>
-            <a onClick={()=>handleId(id)} className="btn-link">
-              See More.
-            </a>
-          </div>
-        ))}
+      <div className="container">
+        <Nav />
+        {dataBlog
+          .filter((el) => el.id === +id)
+          .map(({ id, title, descTitle, desc, createdAt }, key) => (
+            <>
+              <div key={key}>
+                <h1 className="mt-4">{title}</h1>
+                <p className="text-muted mb-3">{createdAt}</p>
+                <p>{desc}</p>
+              </div>
+            </>
+          ))}
       </div>
     </>
   );
-}
+};
+
+export default DetailBlog;
