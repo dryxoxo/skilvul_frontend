@@ -9,7 +9,6 @@ export default function CardTodo({id, title, completed}) {
 
   const handlingEdit = () => {
     setEditVisible(!editVisible);
-    console.log(editVisible);
   };
 
   const handlingSubmit = (e) => {
@@ -20,7 +19,6 @@ export default function CardTodo({id, title, completed}) {
         completed: completed
     }
 
-    console.log(dataObj);
     setEditName("");
     dispatch(updateTodo(dataObj))
     setEditVisible(!editVisible);
