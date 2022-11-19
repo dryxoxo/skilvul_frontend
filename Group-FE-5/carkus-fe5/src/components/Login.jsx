@@ -5,21 +5,21 @@ import { getUser } from "../redux/action/listUserAction";
 export default function Login() {
   const [emailUser, setEmailUser] = useState("");
   const [passwordUser, setPasswordUser] = useState("");
-  const state = useSelector(state => state.listUser)
-  const dispatch = useDispatch()
-  console.log(state)
+  const state = useSelector((state) => state.listUser);
+  const dispatch = useDispatch();
+  console.log(state);
   useEffect(() => {
-    dispatch(getUser())
-  }, [])
-  
+    dispatch(getUser());
+  }, []);
+
   const handlingSubmit = () => {
     const data = {
       emailUser,
-      passwordUser
-    }
+      passwordUser,
+    };
 
-    console.log(data)
-  }
+    console.log(data);
+  };
 
   return (
     <>
@@ -61,7 +61,12 @@ export default function Login() {
                           onChange={(e) => setPasswordUser(e.target.value)}
                         />
                       </div>
-                      <button className="btn btn-primary col-12" onClick={handlingSubmit}>Masuk</button>
+                      <button
+                        className="btn btn-primary col-12"
+                        onClick={handlingSubmit}
+                      >
+                        Masuk
+                      </button>
                     </div>
                   </div>
                 </div>
