@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../redux/action/listUserAction";
 
 export default function Login() {
@@ -8,7 +8,7 @@ export default function Login() {
   const [passwordUser, setPasswordUser] = useState("");
   const state = useSelector((state) => state.listUser);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getUser());
@@ -21,12 +21,12 @@ export default function Login() {
     };
 
     let user = state.list.find((u) => u.email === emailUser);
-    
+
     if (!user || user.password != passwordUser) {
       alert("password atau username salah");
     } else {
       localStorage.setItem("name", user.firstName);
-      navigate('/detail');
+      navigate("/detail");
     }
   };
 
@@ -76,6 +76,12 @@ export default function Login() {
                       >
                         Masuk
                       </button>
+                      <p className="text-center text-muted mt-2">
+                        belum punya akun? klik{" "}
+                        <span>
+                          <Link to={"/"}>disini</Link>
+                        </span>
+                      </p>
                     </div>
                   </div>
                 </div>
