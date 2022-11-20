@@ -9,7 +9,7 @@ import { getKampus } from "../redux/action/listKampusAction";
 function Detail() {
   const state = useSelector((state) => state.listKampus);
   const dispatch = useDispatch();
-  console.log(state);
+
   useEffect(() => {
     dispatch(getKampus());
   }, []);
