@@ -20,7 +20,7 @@ export default function CardList({ namaKampus, lokasi, urlImg, id }) {
       </div>
       <div className="card-footer">
         <a onClick={() => handleId(id)} className="btn btn-primary">
-          Kunjungi
+          Kunjungi 
         </a>
       </div>
     </div>

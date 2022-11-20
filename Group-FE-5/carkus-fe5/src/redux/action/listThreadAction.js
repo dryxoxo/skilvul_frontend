@@ -25,7 +25,7 @@ export const getThread = (id) => {
     const result = await axios(
       `https://6350376e78563c1d82bca248.mockapi.io/kampus/${id}/diskusi`
     );
-    console.log(result.data);
+
     dispatch(sucsessGetThread(result.data));
   };
 };

@@ -1,6 +1,14 @@
 import React from "react";
+import { Navigate, useNavigate } from "react-router";
 
 export default function Nav() {
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    navigate("/");
+    localStorage.clear();
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg">
@@ -64,7 +72,7 @@ export default function Nav() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item">Sign Out</a>
+                  <a className="dropdown-item" onClick={signOut}>Sign Out</a>
                 </li>
               </ul>
             </div>
