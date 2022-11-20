@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { getUser } from "../redux/action/listUserAction";
 
 export default function Login() {
@@ -7,7 +8,8 @@ export default function Login() {
   const [passwordUser, setPasswordUser] = useState("");
   const state = useSelector((state) => state.listUser);
   const dispatch = useDispatch();
-  console.log(state);
+  const navigate = useNavigate()
+
   useEffect(() => {
     dispatch(getUser());
   }, []);
@@ -18,7 +20,13 @@ export default function Login() {
       passwordUser,
     };
 
-    console.log(data);
+    let user = state.list.find((u) => u.email === emailUser);
+    
+    if (!user || user.password != passwordUser) {
+      alert("password atau username salah");
+    } else {
+      navigate('/detail');
+    }
   };
 
   return (
