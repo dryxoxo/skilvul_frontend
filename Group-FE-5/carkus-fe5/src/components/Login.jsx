@@ -25,6 +25,7 @@ export default function Login() {
     if (!user || user.password != passwordUser) {
       alert("password atau username salah");
     } else {
+      localStorage.setItem("name", user.firstName);
       navigate('/detail');
     }
   };

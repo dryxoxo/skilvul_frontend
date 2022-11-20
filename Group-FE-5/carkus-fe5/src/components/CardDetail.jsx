@@ -25,7 +25,7 @@ export default function CardDetail({ data }) {
     e.preventDefault()
     const date = new Date().toLocaleDateString('ind-ID', { year: 'numeric', month: 'long', day: 'numeric'})
     const data = {
-      name: "Baim",
+      name: localStorage.getItem("name"),
       diskusi: teksDiskusi,
       createdAt: date,
       kampuId: id
