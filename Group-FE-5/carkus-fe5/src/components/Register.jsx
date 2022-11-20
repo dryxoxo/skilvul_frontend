@@ -46,7 +46,7 @@ export default function Register() {
                       Daftar sekarang secara gratis!
                     </h1>
                     <div className="card-text">
-                      <form>
+                      <form onSubmit={handleSubmit}>
                       <div className="row">
                         <div className="col-xxl-6">
                           <label className="form-label">Nama Depan</label>
@@ -97,7 +97,7 @@ export default function Register() {
                         <div className="col-12 mt-1">
                           <button
                             className="btn btn-primary col-12"
-                            onSubmit={handleSubmit}
+                            type="submit"
                           >
                             Daftar
                           </button>
